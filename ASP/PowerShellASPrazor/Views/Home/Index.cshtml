@@ -1,0 +1,28 @@
+﻿    @model IEnumerable<PowerShellASPrazor.Models.IPmodel>
+
+    @{
+    ViewBag.Title = "Home Page";
+    }
+
+
+    <div>
+        <form id="form1" runat="server">
+            <div>
+                <div><h1 align="center">Telnet Powershell ASP MVC cmdlet</h1></div>
+                <p>
+                    Please type the Source IP:
+                    <br />
+                    @Html.TextBox("SOURCEIP", "192.168.0.220", new { id = "SOURCEIP" })
+                    <br />
+                    Please type the destination IP and Port splitted by ';' sign:
+                    <br />
+                    @Html.TextArea("IP", "213.180.141.140;213.180.141.141;213.180.141.142;213.180.141.143;213.180.141.144;213.180.141.145", 10, 55, null)
+                    @Html.TextArea("PORT", "80;80;80;80;80;80", 10, 55, null)
+                    @Html.ActionLink("TestConnectivity", "Test", "Home", null, 
+                   new { onclick = "this.href += '/' + document.getElementById('IP').value  + '/' + document.getElementById('SOURCEIP').value + '/' + document.getElementById('PORT').value  ;" })
+                </p>
+            </div>
+        </form>
+    </div>
+    <!–– Html.TextBox("IP", "213.180.141.140", new { id = "IP" }) -->
+    <!–– Html.TextBox("PORT", "80", new { id = "PORT" }) -->

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PowerShellASPrazor.Models.Results>
+@{
+    ViewBag.Title = "Results";
+}
+
+    <h2>Results</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ResultsString)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    
+    <td>
+        @Html.DisplayNameFor(model => model.ComputerName)
+        @Html.DisplayFor(modelItem => item.ComputerName)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.RemoteAddress)
+        @Html.DisplayFor(modelItem => item.RemoteAddress)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.InterfaceAlias)
+        @Html.DisplayFor(modelItem => item.InterfaceAlias)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.SourceAddress)
+        @Html.DisplayFor(modelItem => item.SourceAddress)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.TcpTestSucceeded)
+        @Html.DisplayFor(modelItem => item.TcpTestSucceeded)
+    </td>
+    
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+    }
+
+</table>
